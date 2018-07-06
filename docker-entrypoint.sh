@@ -73,6 +73,7 @@ if [ "$1" = 'postgres' ]; then
 			authMethod=trust
 		fi
 
+		# For slave instance
 		if [ "x$REPLICATE_FROM" == "x" ]; then
 
 		{ echo; echo "host replication all 0.0.0.0/0 $authMethod"; } | gosu postgres tee -a "$PGDATA/pg_hba.conf" > /dev/null
